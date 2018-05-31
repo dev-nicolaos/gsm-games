@@ -1,0 +1,13 @@
+@import 'breakpoints';
+
+.game-list {
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: 1fr;
+  @include sm {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include lg {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

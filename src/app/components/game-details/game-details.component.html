@@ -1,0 +1,27 @@
+<header>
+  <h2>{{game.name}}</h2>
+  <button (click)="goToImprove()">Improve</button>
+</header>
+<section class="game-details">
+  <aside class="game-filters">
+    <div class="filter-type">
+      <h4>{{game.events.length > 1 ? 'Events' : 'Event'}}</h4>
+      <div class="filters">
+        <h5 *ngFor="let event of game.events">{{event}}</h5>
+      </div>
+    </div>
+    <div class="filter-type">
+      <h4>{{game.spaces.length > 1 ? 'Spaces' : 'Space'}}</h4>
+      <div class="filters">
+        <h5 *ngFor="let space of game.spaces">{{space}}</h5>
+      </div>
+    </div>
+    <div class="filter-type">
+      <h4>{{game.settings.length > 1 ? 'Settings' : 'Setting'}}</h4>
+      <div class="filters">
+        <h5 *ngFor="let setting of game.settings">{{setting}}</h5>
+      </div>
+    </div>
+  </aside>
+  <p class="game-description">{{game.description}}</p>
+</section>

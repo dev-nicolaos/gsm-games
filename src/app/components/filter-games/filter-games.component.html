@@ -1,0 +1,56 @@
+<section class="filter">
+  <input class="games-search" type="text" placeholder="Search Games" [(ngModel)]="searchQuery">
+  <details class="list-filters list-filters-sm">
+    <summary>Filters</summary>
+    <div class="filter-options">
+      <div class="form-group">
+        <label for="events">Event</label>
+        <select id="events" name="eventFilter" [(ngModel)]="eventFilter">
+          <option value="">All</option>
+          <option [value]="event" *ngFor="let event of events">{{event}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="spaces">Space</label>
+        <select id="spaces" name="spaceFilter" [(ngModel)]="spaceFilter">
+          <option value="">All</option>
+          <option [value]="space" *ngFor="let space of spaces">{{space}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="settings">Setting</label>
+        <select id="settings" name="settingFilter" [(ngModel)]="settingFilter">
+          <option value="">All</option>
+          <option [value]="setting" *ngFor="let setting of settings">{{setting}}</option>
+        </select>
+      </div>
+    </div>
+    <button (click)="clearFilters()">Clear Filters</button>
+  </details>
+  <div class="list-filters list-filters-lg">
+    <div class="filter-options">
+      <div class="form-group">
+        <label for="events">Event</label>
+        <select id="events" name="eventFilter" [(ngModel)]="eventFilter">
+          <option value="">All</option>
+          <option [value]="event" *ngFor="let event of events">{{event}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="spaces">Space</label>
+        <select id="spaces" name="spaceFilter" [(ngModel)]="spaceFilter">
+          <option value="">All</option>
+          <option [value]="space" *ngFor="let space of spaces">{{space}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="settings">Setting</label>
+        <select id="settings" name="settingFilter" [(ngModel)]="settingFilter">
+          <option value="">All</option>
+          <option [value]="setting" *ngFor="let setting of settings">{{setting}}</option>
+        </select>
+      </div>
+    </div>
+    <button (click)="clearFilters()" *ngIf="searchQuery || eventFilter || spaceFilter || settingFilter">Clear Filters</button>
+  </div>
+</section>

@@ -1,0 +1,5 @@
+<gsm-filter-games (filter)="filterGamesList()"></gsm-filter-games>
+
+<section class="game-list">
+  <gsm-game-card *ngFor="let game of games" [game]="game"></gsm-game-card>
+</section>

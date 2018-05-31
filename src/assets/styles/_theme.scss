@@ -1,0 +1,8 @@
+$glenwood: (
+  green: #759f00,
+  blue: #0d394f,
+);
+
+@function glenwood ($key) {
+  @return map-get($glenwood, $key);
+}

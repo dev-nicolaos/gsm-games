@@ -1,0 +1,27 @@
+$screen-sizes: (
+  sm: 480px,
+  md: 768px,
+  lg: 1080px,
+);
+
+@function screen-sizes ($var) {
+   @return map-get($screen-sizes, $var);
+}
+
+@mixin sm () {
+  @media only screen and (min-width: screen-sizes(sm)) {
+    @content;
+  }
+}
+
+@mixin md () {
+  @media only screen and (min-width: screen-sizes(md)) {
+    @content;
+  }
+}
+
+@mixin lg () {
+  @media only screen and (min-width: screen-sizes(lg)) {
+    @content;
+  }
+}

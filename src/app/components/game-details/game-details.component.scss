@@ -1,0 +1,47 @@
+@import 'theme';
+@import 'breakpoints';
+
+header {
+  margin-bottom: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  h2 {
+    color: glenwood(blue);
+    margin-right: 1rem;
+  }
+}
+.game-details {
+  display: flex;
+  flex-flow: column wrap;
+  @include md {
+    flex-flow: row nowrap;
+  }
+  .game-description {
+    background: white;
+    border-radius: 4px;
+  }
+  .game-filters {
+    margin: 0 0 1rem 0;
+    background: white;
+    padding: 6px;
+    border-radius: 4px;
+    text-align: center;
+    @include md {
+      text-align: left;
+      margin: 0 1rem 0 0;
+      flex-shrink: 0;
+      width: 200px;
+    }
+    h4 {
+      color: glenwood(blue);
+      margin-bottom: 2px;
+    }
+    .filter-type {
+      margin-bottom: 4px;
+      .filters {
+        line-height: 1.6em
+      }
+    }
+  }
+}

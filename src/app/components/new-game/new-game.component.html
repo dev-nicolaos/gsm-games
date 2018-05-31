@@ -1,0 +1,46 @@
+<form #newGameForm="ngForm" (ngSubmit)="submitNewGame(newGameForm)" class="new-game-form" *ngIf="!success">
+  <input type="text" name="gameName" required ngModel placeholder="Game Name (required)"
+          class="game-name user-input">
+  <div class="filter-categories">
+    <section class="section-container">
+      <h4 class="form-section-label">Events (Select All that Apply)</h4>
+      <div class="form-section select-events">
+        <label class="event" *ngFor="let event of events">
+          <input type="checkbox" [name]="'event_'+ event" ngModel>
+          <span class="label-text">{{event}}</span>
+        </label>
+      </div>
+    </section>
+    <section class="section-container">
+      <h4 class="form-section-label">Space</h4>
+      <div class="form-section select-spaces">
+        <label class="radio-container" *ngFor="let space of spaces">
+          <input type="radio" name="space" [value]="space" ngModel>
+          <span>{{space}}</span>
+        </label>
+        <label class="radio-container">
+          <input type="radio" name="space" value="Both" ngModel>
+          <span>Both</span>
+        </label>
+      </div>
+      <h4 class="form-section-label">Setting</h4>
+      <div class="form-section select-settings">
+        <label class="radio-container" *ngFor="let setting of settings">
+          <input type="radio" name="setting" [value]="setting" ngModel>
+          <span>{{setting}}</span>
+        </label>
+        <label class="radio-container">
+          <input type="radio" name="setting" value="Both" ngModel>
+          <span>Both</span>
+        </label>
+      </div>
+    </section>
+  </div>
+  <textarea class="user-input" name="gameDescription" required ngModel placeholder="Game Description (required)"></textarea>
+  <div class="form-actions">
+    <input type="submit" value="Submit" [disabled]="!newGameForm.valid">
+    <input type="reset">
+  </div>
+</form>
+
+<gsm-thank-you *ngIf="success"></gsm-thank-you>

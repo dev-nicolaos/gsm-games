@@ -1,0 +1,24 @@
+@import 'breakpoints';
+@import 'theme';
+
+.options {
+  margin-bottom: 2rem;
+  button {
+    display: block;
+    width: 100%;
+    &:not(:last-child) {
+      margin: 0 0 6px 0;
+      @include sm {
+        margin: 0 6px 0 0;
+      }
+    }
+    &.active {
+      color: glenwood(green);
+      background: white;
+    }
+    @include sm {
+      display: inline;
+      width: auto;
+    }
+  }
+}

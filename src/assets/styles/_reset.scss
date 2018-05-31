@@ -1,0 +1,15 @@
+html, body, h1, h2, h3, h4, h5, h6, p, a, img, svg, div, span, form, fieldset, input, textarea, button, i, iframe, section, article, main, aside, header, nav, footer, video, audio, canvas, figure, figcaption, summary, details, table, tbody, thead, tr, td, tfoot, time, ul, ol, li, address, caption, br, embed {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+}
+
+a, a:hover, a:focus, a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+*:focus {
+  outline: none;
+}

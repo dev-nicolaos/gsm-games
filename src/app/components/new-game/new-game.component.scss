@@ -1,0 +1,82 @@
+@import 'theme';
+@import 'breakpoints';
+
+.new-game-form {
+  label {
+    color: white;
+    font-size: 1.2rem;
+  }
+
+  .user-input {
+    padding: 6px;
+    border-radius: 4px;
+    color: black;
+    display: block;
+    width: calc(100% - 12px);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
+
+  .game-name {
+    @include md {
+      max-width: 360px;
+    }
+  }
+
+  .filter-categories {
+    @include sm {
+      display: flex;
+      .section-container {
+        &:not(:last-child) {
+          margin-right: 2rem;
+        }
+      }
+    }
+  }
+
+  .form-section-label {
+    margin-bottom: .5rem;
+    color: glenwood(blue);
+  }
+
+  .form-section {
+    margin-bottom: 1rem;
+    padding-left: .5rem;
+    input {margin-right: 1rem;}
+  }
+
+  .select-events {
+    .event {
+      margin-bottom: .5rem;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .select-settings, .select-spaces {
+    .radio-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+  }
+
+  textarea {
+    height: 200px;
+    overflow: auto;
+    resize: none;
+  }
+
+  .form-actions {
+    input {
+      padding: 6px 12px;
+      &:first-child {
+        margin-right: .5rem;
+      }
+      &[disabled] {
+        cursor: not-allowed;
+      }
+    }
+  }
+
+}

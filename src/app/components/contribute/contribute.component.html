@@ -1,0 +1,9 @@
+<div class="options">
+  <button [class.active]="subComponent === 'newGame'" (click)="subComponent = 'newGame'">Submit a New Game</button>
+  <button [class.active]="subComponent === 'improveGame'" (click)="subComponent = 'improveGame'">Help Improve an Existing Game</button>
+</div>
+
+<ng-container [ngSwitch]="subComponent">
+  <gsm-new-game *ngSwitchCase="'newGame'"></gsm-new-game>
+  <gsm-improve-game *ngSwitchCase="'improveGame'" [selectedGame]="selectedGame"></gsm-improve-game>
+</ng-container>

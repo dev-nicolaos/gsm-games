@@ -1,0 +1,60 @@
+@import 'breakpoints';
+@import 'theme';
+
+#app-header {
+  background: glenwood(blue);
+  color: white;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+  a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include sm {
+      flex-direction: row;
+    }
+    .logo {
+      height: 100px;
+      margin: 0 0 10px 0;
+      cursor: pointer;
+      @include sm {
+        margin: 0 10px 0 0;
+      }
+    }
+  }
+}
+
+#app-footer {
+  background: glenwood(blue);
+  color: white;
+  margin-top: auto;
+  padding-top: 1rem;
+  flex-shrink: 0;
+  padding-bottom: 1rem;
+  @include sm {
+    display: flex;
+    justify-content: space-between;
+  }
+  .links {
+    margin-bottom: 2rem;
+    @include sm {
+      margin-bottom: 0;
+    }
+    a {
+      display: block;
+      margin-bottom: .5rem;
+      font-size: 1.2rem;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  .timestamp {
+    text-align: center;
+    @include sm {
+      text-align: right;
+    }
+  }
+}

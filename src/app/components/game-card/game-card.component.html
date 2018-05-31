@@ -1,0 +1,6 @@
+<div class="game-card" [routerLink]="['/', game.url]">
+  <h3 class="game-card-title">{{game.name}}</h3>
+  <div class="description-container">
+    <p class="description">{{game.description | slice:0:150}}...</p>
+  </div>
+</div>
