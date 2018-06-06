@@ -1,18 +1,16 @@
 <?php
+  // Headers
+  header('Access-Control-Allow-Origin: *');
+  header('Content-Type: application/json');
+  header('Access-Control-Allow-Methods: POST');
 
-header('Content-type: application/json');
-
-$errors = '';
-
-if (empty($errors)) {
   // Retrieve and decode data from http request
-	$postdata = file_get_contents("php://input");
-	$request = json_decode($postdata);
+	$post_data = json_decode(file_get_contents("php://input"));
 
   // Decalre properties
-	$game_name = $request->gameName;
-	$game_id = $request->gameId;
-	$improvements = $request->improvements;
+	$game_name = $post_data->gameName;
+	$game_id = $post_data->gameId;
+	$improvements = $post_data->improvements;
 	$email = 'dev@nicolaosskimas.com';
 
   // Build Email
@@ -23,6 +21,7 @@ if (empty($errors)) {
 	$email_body .= "<p>$improvements</p>";
 	$email_body .= '</body></html>';
 
+  // Set Email Headers
 	$headers = [
     "MIME-Version" => "1.0",
     "Content-Type" => 'text/html; charset=UTF-8',
@@ -38,9 +37,7 @@ if (empty($errors)) {
         'improvements' => "$improvements",
       ],
     ];
-    json_encode($response_array);
-    header($response_array);
-    return;
+    echo json_encode($response_array);
   } else {
     $response_array = [
       'status' => 'error',
@@ -48,20 +45,7 @@ if (empty($errors)) {
         'message' => 'Email could not be sent',
       ],
     ];
-    json_encode($response_array);
-    header($response_array);
-    return;
+    echo json_encode($response_array);
   }
-
-} else {
-	$response_array = [
-    'status' => 'error',
-    'data' => [
-      'message': 'Error in submission',
-    ]
-    ];
-	json_encode($response_array);
-	header($response_array);
-}
 
 ?>
