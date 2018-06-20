@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import { GamesService, DataService } from '../../services/services';
 
@@ -13,26 +13,40 @@ export class ImproveGameComponent {
   @Input() selectedGame: Game | '';
   games: Game[];
   improvements: String;
-  success = false;
+  @Output() submitResult = new EventEmitter<object>();
+  @Output() clear = new EventEmitter();
 
   constructor(private gameService: GamesService, private dataService: DataService) {
     this.games = gameService.games;
   }
 
   submit() {
+    // Dismiss any notifications
+    this.clear.emit();
+
     if (this.selectedGame && this.improvements) {
       const submission = {
         gameName: this.selectedGame.name,
         gameId: this.selectedGame.id,
         improvements: this.improvements
       };
+
+      const notification = {
+        operation: 'improve',
+        data: submission,
+        success: false
+      };
+
       const url = '/assets/backend/improve.php';
       this.dataService.post(url, submission).subscribe(res => {
-        console.log(res);
-        this.success = true;
+        notification.success = true;
+        this.submitResult.emit(notification);
+        this.selectedGame = '';
+        this.improvements = '';
       }, err => {
-        console.error(err);
+        this.submitResult.emit(notification);
       });
     }
   }
+
 }

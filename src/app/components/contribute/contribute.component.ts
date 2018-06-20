@@ -13,6 +13,8 @@ import { GamesService } from '../../services/services';
 export class ContributeComponent implements OnInit {
   subComponent: string | null;
   selectedGame: Game | '';
+  message: string;
+  submitted = false;
 
   constructor(private titleService: Title, private gamesService: GamesService) {
     this.subComponent = null;
@@ -26,6 +28,30 @@ export class ContributeComponent implements OnInit {
       this.gamesService.gameToImprove = '';
       this.subComponent = 'improveGame';
     }
+  }
+
+  dismiss() {
+    this.message = '';
+    this.submitted = false;
+  }
+
+  onSubmit(info) {
+    if (info.success) {
+      if (info.operation === 'new') {
+        this.message = `Your new game '${info.data.name}' has been submitted.`;
+      } else {
+        this.message = `Your improvements to '${info.data.gameName}' have been submitted.`;
+      }
+      this.message += 'Thanks for your help in making the Game Center even more awesome!';
+    } else {
+      if (info.operation === 'new') {
+        this.message = `Unfortunately, your new game '${info.data.name}' could not be submitted due to a technical error.`;
+      } else {
+        this.message = `Unfortunately, your improvements to '${info.data.gameName}' could not be submitted due to a technical error.`;
+      }
+    }
+
+    this.submitted = true;
   }
 
 }

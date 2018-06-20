@@ -3,7 +3,16 @@
   <button [class.active]="subComponent === 'improveGame'" (click)="subComponent = 'improveGame'">Help Improve an Existing Game</button>
 </div>
 
+<gsm-notification *ngIf="submitted" (dismissed)="dismiss()" [message]="message"></gsm-notification>
+
 <ng-container [ngSwitch]="subComponent">
-  <gsm-new-game *ngSwitchCase="'newGame'"></gsm-new-game>
-  <gsm-improve-game *ngSwitchCase="'improveGame'" [selectedGame]="selectedGame"></gsm-improve-game>
+  <gsm-new-game *ngSwitchCase="'newGame'"
+    (clear)="dismiss();" (submitResult)="onSubmit($event)">
+  </gsm-new-game>
+
+<!--   <gsm-improve-game *ngSwitchCase="'improveGame'"
+    (clear)="dismiss()" (submitResult)="onSubmit($event)"> -->
+  <gsm-improve-game *ngSwitchCase="'improveGame'" [selectedGame]="selectedGame"
+    (clear)="dismiss()" (submitResult)="onSubmit($event)">
+  </gsm-improve-game>
 </ng-container>

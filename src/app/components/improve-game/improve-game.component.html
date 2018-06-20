@@ -1,9 +1,8 @@
-<div class="improve-game-form" *ngIf="!success">
-  <select class="game-selection" [(ngModel)]="selectedGame" (ngModelChange)="improvements = ''">
+<div class="improve-game-form">
+  <select class="game-selection" [(ngModel)]="selectedGame">
     <option value="">Please Select a Game</option>
-    <option *ngFor="let game of games" [value]="game">{{game.name}}</option>
+    <option *ngFor="let game of games" [ngValue]="game">{{game.name}}</option>
   </select>
-
   <section *ngIf="selectedGame">
     <h4 class="form-section-label">How can this game be improved?</h4>
     <ul class="form-section">
@@ -17,5 +16,3 @@
     <button (click)="submit()" [disabled]="!improvements">Submit Improvements</button>
   </section>
 </div>
-
-<gsm-thank-you *ngIf="success"></gsm-thank-you>

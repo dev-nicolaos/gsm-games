@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 import { GamesService, DataService } from '../../services/services';
-import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'gsm-new-game',
@@ -12,7 +12,8 @@ export class NewGameComponent {
   events: string[];
   spaces: string[];
   settings: string[];
-  success = false;
+  @Output() submitResult = new EventEmitter<object>();
+  @Output() clear = new EventEmitter();
 
   constructor(private gameService: GamesService, private dataService: DataService) {
     this.events = gameService.events;
@@ -21,13 +22,16 @@ export class NewGameComponent {
   }
 
   submitNewGame(newGameForm: NgForm) {
-    let gameSubmission = {
+    // Dismiss any notifications
+    this.clear.emit();
+
+    const gameSubmission = {
       name: newGameForm.value.gameName,
       description: newGameForm.value.gameDescription,
       events: [],
       spaces: (newGameForm.value.space === 'Both') ? ['Indoors', 'Outdoors'] : [newGameForm.value.space],
       settings: (newGameForm.value.setting === 'Both') ? ['Organized', 'Freetime'] : [newGameForm.value.setting],
-    }
+    };
     for (const prop in newGameForm.value) {
       if (prop.startsWith('event_') && newGameForm.value[prop]) {
         const index = prop.indexOf('_') + 1;
@@ -35,15 +39,19 @@ export class NewGameComponent {
       }
     }
 
-    newGameForm.reset();
+    const notification = {
+      operation: 'new',
+      data: gameSubmission,
+      success: false
+    };
 
     const url = '/assets/backend/new-game.php';
     this.dataService.post(url, gameSubmission).subscribe(res => {
-      console.log(res);
-      this.success = true;
+      notification.success = true;
+      this.submitResult.emit(notification);
+      newGameForm.reset();
     }, err => {
-      console.error(err);
+      this.submitResult.emit(notification);
     });
   }
-
 }

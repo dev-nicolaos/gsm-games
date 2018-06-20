@@ -1,0 +1,16 @@
+@import 'theme';
+
+.thank-you {
+  background: glenwood(blue);
+  color: white;
+  border-radius: 6px;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+
+  .close-icon {
+    cursor: pointer;
+    margin-left: 2rem;
+    height: 1rem;
+  }
+}

@@ -1,4 +1,4 @@
-<form #newGameForm="ngForm" (ngSubmit)="submitNewGame(newGameForm)" class="new-game-form" *ngIf="!success">
+<form #newGameForm="ngForm" (ngSubmit)="submitNewGame(newGameForm)" class="new-game-form">
   <input type="text" name="gameName" required ngModel placeholder="Game Name (required)"
           class="game-name user-input">
   <div class="filter-categories">
@@ -42,5 +42,3 @@
     <input type="reset">
   </div>
 </form>
-
-<gsm-thank-you *ngIf="success"></gsm-thank-you>

@@ -12,7 +12,7 @@ import {
   GameCardComponent,
   NewGameComponent,
   ImproveGameComponent,
-  ThankYouComponent,
+  NotificationComponent,
 } from './components/components';
 
 import { GamesService, DataService } from './services/services';
@@ -26,7 +26,7 @@ import { NoSpacePipe } from './pipes/no-space.pipe';
     GameCardComponent,
     ImproveGameComponent,
     NewGameComponent,
-    ThankYouComponent,
+    NotificationComponent,
     NoSpacePipe,
   ],
   imports: [
