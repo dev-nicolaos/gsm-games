@@ -4,47 +4,93 @@
   header('Content-Type: application/json');
   header('Access-Control-Allow-Methods: POST');
 
-  // Retrieve and decode data from http request
-	$game_data = json_decode(file_get_contents("php://input"));
+  // Retrieve data from http request and make sure it's a string (JSON)
+  $request = file_get_contents("php://input");
 
-  // Decalre properties
-	$email = 'dev@nicolaosskimas.com';
+  if (gettype($request) === "string") {
 
-  // Build Email
-	$email_subject = "GSM Games: New Game! ($post_data->name)";
+    // Decode JSON data
+    $post_data = json_decode($request);
 
-  $email_body = '<html><body>';
-	$email_body .= "<h2>$post_data->name</h2>";
-  $email_body .= "<ol>
-    <li>Events: print_r($post_data->events)</li>
-    <li>Spaces: print_r($post_data->spaces)</li>
-    <li>Settings: print_r($post_data->settings)</li>
-  </ol>";
-  $email_body .= '<h4>Game Description</h4>';
-  $email_body .= "<p>$post_data->description</p>";
-	$email_body .= '</body></html>';
+    if (isset($post_data->gameName) &&
+        isset($post_data->events) &&
+        isset($post_data->spaces) &&
+        isset($post_data->settings) &&
+        isset($post_data->description)) {
 
-  // Set Email Headers
-	$headers = [
-    "MIME-Version" => "1.0",
-    "Content-Type" => 'text/html; charset=UTF-8',
-	  "From" => "$email",
-  ];
+      // Declare properties
+      $game_name = $post_data->gameName;
+      $events = $post_data->events;
+      $spaces = $post_data->spaces;
+      $settings = $post_data->settings;
+      $description = $post_data->description;
+      $email = 'dev@nicolaosskimas.com';
 
-  // Try and send email, then send response
-	if (@mail($email,$email_subject,$email_body,$headers)) {
-    $response_array = [
-      'status' => 'success',
-      'data' => $post_data,
-    ];
-    echo json_encode($response_array);
+      // Build Email
+      $email_subject = "GSM Games: New Game! ($game_name)";
+
+      $email_body = '<html><body>';
+      $email_body .= "<h2>$game_name</h2>";
+      $email_body .= "<ol>
+        <li>Events: print_r($events)</li>
+        <li>Spaces: print_r($spaces)</li>
+        <li>Settings: print_r($settings)</li>
+      </ol>";
+      $email_body .= '<h4>Game Description</h4>';
+      $email_body .= "<p>$description</p>";
+      $email_body .= '</body></html>';
+
+      // Set Email Headers
+      $headers = [
+        "MIME-Version" => "1.0",
+        "Content-Type" => 'text/html; charset=UTF-8',
+        "From" => "$email",
+      ];
+
+      // Attempt to send email (requires PHP 7.2 to support $headers as array)
+      if (@mail($email,$email_subject,$email_body,$headers)) {
+        $response_array = [
+          'status' => 'success',
+          'message' => "New game successfully submitted";
+          'data' => [
+            'gameName' => $game_name,
+            'events' => $events,
+            'spaces' => $spaces,
+            'settings' => $settings,
+            'description' => $description,
+          ];
+        ];
+        http_response_code(200);
+        echo json_encode($response_array);
+      } else {
+        $response_array = [
+          'status' => 'error',
+          'message' => 'Email could not be sent',
+          'data' => $post_data,
+        ];
+        http_response_code(500);
+        echo json_encode($response_array);
+      }
+
+    } else {
+      // If $post_data doesn't have necessary properties
+      handle_bad_request('Request missing required data', $post_data);
+    }
+
   } else {
+    // If $request is not a string
+    handle_bad_request('Request cannot be parsed');
+  }
+
+  function handle_bad_request($reason, $data = 'none') {
     $response_array = [
       'status' => 'error',
-      'data' => [
-        'message' => 'Email could not be sent',
-      ],
+      'message' => $reason,
     ];
+    if ($data !== 'none') {
+      $response_array['data'] = $data;
+    }
+    http_response_code(400);
     echo json_encode($response_array);
   }
 

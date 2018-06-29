@@ -26,7 +26,7 @@ export class NewGameComponent {
     this.clear.emit();
 
     const gameSubmission = {
-      name: newGameForm.value.gameName,
+      gameName: newGameForm.value.gameName,
       description: newGameForm.value.gameDescription,
       events: [],
       spaces: (newGameForm.value.space === 'Both') ? ['Indoors', 'Outdoors'] : [newGameForm.value.space],
