@@ -17,6 +17,7 @@ import {
 
 import { GamesService, DataService } from './services/services';
 import { NoSpacePipe } from './pipes/no-space.pipe';
+import { ValidGameGuard } from './guards/guards';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { NoSpacePipe } from './pipes/no-space.pipe';
     HttpClientModule,
     AppRoutingModule,
   ],
-  providers: [GamesService, Title, DataService],
+  providers: [GamesService, Title, DataService, ValidGameGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
