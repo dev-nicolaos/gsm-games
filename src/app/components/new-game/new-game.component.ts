@@ -33,9 +33,13 @@ export class NewGameComponent {
       settings: (newGameForm.value.setting === 'Both') ? ['Organized', 'Freetime'] : [newGameForm.value.setting],
     };
     for (const prop in newGameForm.value) {
-      if (prop.startsWith('event_') && newGameForm.value[prop]) {
-        const index = prop.indexOf('_') + 1;
-        gameSubmission.events.push(prop.substring(index));
+      if (prop.startsWith('event_')) {
+        if (prop.endsWith('other') && newGameForm.value[prop]) {
+          gameSubmission.events.push(newGameForm.value[prop]);
+        } else if (newGameForm.value[prop]) {
+          const index = prop.indexOf('_') + 1;
+          gameSubmission.events.push(prop.substring(index));
+        }
       }
     }
 
