@@ -6,3 +6,5 @@ $glenwood: (
 @function glenwood ($key) {
   @return map-get($glenwood, $key);
 }
+
+$gray: #c9c9c9;
