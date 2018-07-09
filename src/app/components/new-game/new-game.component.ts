@@ -46,8 +46,15 @@ export class NewGameComponent {
     const notification = {
       operation: 'new',
       data: gameSubmission,
-      success: false
+      success: false,
+      noEvents: false,
     };
+
+    if (gameSubmission.events.length < 1) {
+      notification.noEvents = true;
+      this.submitResult.emit(notification);
+      return;
+    }
 
     const url = '/assets/backend/new-game.php';
     this.dataService.post(url, gameSubmission).subscribe(res => {

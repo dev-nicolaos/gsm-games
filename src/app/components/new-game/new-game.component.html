@@ -15,25 +15,25 @@
       </div>
     </section>
     <section class="section-container">
-      <h4 class="form-section-label">Space</h4>
+      <h4 class="form-section-label">Space (required)</h4>
       <div class="form-section select-spaces">
         <label class="radio-container" *ngFor="let space of spaces">
-          <input type="radio" name="space" [value]="space" ngModel>
+          <input type="radio" name="space" [value]="space" required ngModel>
           <span>{{space}}</span>
         </label>
         <label class="radio-container">
-          <input type="radio" name="space" value="Both" ngModel>
+          <input type="radio" name="space" value="Both" required ngModel>
           <span>Both</span>
         </label>
       </div>
-      <h4 class="form-section-label">Setting</h4>
+      <h4 class="form-section-label">Setting (required)</h4>
       <div class="form-section select-settings">
         <label class="radio-container" *ngFor="let setting of settings">
-          <input type="radio" name="setting" [value]="setting" ngModel>
+          <input type="radio" name="setting" [value]="setting" required ngModel>
           <span>{{setting}}</span>
         </label>
         <label class="radio-container">
-          <input type="radio" name="setting" value="Both" ngModel>
+          <input type="radio" name="setting" value="Both" required ngModel>
           <span>Both</span>
         </label>
       </div>
