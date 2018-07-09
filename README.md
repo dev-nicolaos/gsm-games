@@ -10,7 +10,7 @@ This project was generated with the [Angular CLI](https://github.com/angular/ang
 Run `ng build` from the project root to create a build. Add the `--prod` flag to compress for production. If deploying to a sub (non-root) folder on a domain, add the `--base-href` flag with the path to that folder as a parameter. Copy all the files from the dist folder to wherever you are deploying.
 
 #### Important!
-If deploying on an apache/nginx add the following code to a `.htaccess` file and place it with the other files in the deployed project root. This tells the server to redirect url's to the project root where the angular router can handle them.
+If deploying on apache/nginx add the following code to a `.htaccess` file and place it with the other files in the deployed project root. This tells the server to redirect url's to the project root where the angular router can handle them.
 
 ```
 <IfModule mod_rewrite.c>
