@@ -51,14 +51,14 @@
       if (@mail($email,$email_subject,$email_body,$headers)) {
         $response_array = [
           'status' => 'success',
-          'message' => "New game successfully submitted";
+          'message' => "New game successfully submitted",
           'data' => [
             'gameName' => $game_name,
             'events' => $events,
             'spaces' => $spaces,
             'settings' => $settings,
             'description' => $description,
-          ];
+          ],
         ];
         http_response_code(200);
         echo json_encode($response_array);
