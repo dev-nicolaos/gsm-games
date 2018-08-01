@@ -26,15 +26,19 @@
       $description = $post_data->description;
       $email = 'dev@nicolaosskimas.com';
 
+      $events_info = print_r($events, true);
+      $spaces_info = print_r($spaces, true);
+      $settings_info = print_r($settings, true);
+
       // Build Email
       $email_subject = "GSM Games: New Game! ($game_name)";
 
       $email_body = '<html><body>';
       $email_body .= "<h2>$game_name</h2>";
       $email_body .= "<ol>
-        <li>Events: print_r($events)</li>
-        <li>Spaces: print_r($spaces)</li>
-        <li>Settings: print_r($settings)</li>
+        <li>Events: $events_info</li>
+        <li>Spaces: $spaces_info</li>
+        <li>Settings: $settings_info</li>
       </ol>";
       $email_body .= '<h4>Game Description</h4>';
       $email_body .= "<p>$description</p>";
