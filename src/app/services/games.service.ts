@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 
-import { GAMES } from '../games-data';
 import { Game, FilterObject } from '../models/models';
 
 @Injectable()
@@ -13,7 +12,7 @@ export class GamesService {
   gameToImprove: Game | '' = '';
 
   constructor() {
-    this.games = JSON.parse(GAMES);
+    this.games = GAMES;
     this.orderGames();
     this.createLists();
     this.clearFilters();
