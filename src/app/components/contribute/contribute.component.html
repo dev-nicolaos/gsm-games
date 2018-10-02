@@ -1,6 +1,6 @@
 <div class="options">
-  <button [class.active]="subComponent === 'newGame'" (click)="subComponent = 'newGame'">Submit a New Game</button>
-  <button [class.active]="subComponent === 'improveGame'" (click)="subComponent = 'improveGame'">Help Improve an Existing Game</button>
+  <button class="alternate" [class.active]="subComponent === 'newGame'" (click)="subComponent = 'newGame'">Submit a New Game</button>
+  <button class="alternate" [class.active]="subComponent === 'improveGame'" (click)="subComponent = 'improveGame'">Help Improve an Existing Game</button>
 </div>
 
 <gsm-notification *ngIf="submitted" (dismissed)="dismiss()" [message]="message"></gsm-notification>
@@ -10,8 +10,6 @@
     (clear)="dismiss();" (submitResult)="onSubmit($event)">
   </gsm-new-game>
 
-<!--   <gsm-improve-game *ngSwitchCase="'improveGame'"
-    (clear)="dismiss()" (submitResult)="onSubmit($event)"> -->
   <gsm-improve-game *ngSwitchCase="'improveGame'" [selectedGame]="selectedGame"
     (clear)="dismiss()" (submitResult)="onSubmit($event)">
   </gsm-improve-game>

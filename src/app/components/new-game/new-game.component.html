@@ -3,7 +3,7 @@
           class="game-name user-input">
   <div class="filter-categories">
     <section class="section-container">
-      <h4 class="form-section-label">Events (Select All that Apply)</h4>
+      <h4 class="form-section-label">Events (select all that apply)</h4>
       <div class="form-section select-events">
         <label class="event" *ngFor="let event of events">
           <input type="checkbox" [name]="'event_'+ event" ngModel>
@@ -41,7 +41,7 @@
   </div>
   <textarea class="user-input" name="gameDescription" required ngModel placeholder="Game Description (required)"></textarea>
   <div class="form-actions">
-    <input type="submit" value="Submit" [disabled]="!newGameForm.valid">
-    <input type="reset">
+    <input class="alternate" type="submit" value="Submit" [disabled]="!newGameForm.valid">
+    <input class="alternate" type="reset">
   </div>
 </form>

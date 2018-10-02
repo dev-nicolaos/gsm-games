@@ -9,42 +9,4 @@
       width: auto;
     }
   }
-
-  .form-section-label {
-    margin-bottom: .5rem;
-    color: glenwood(blue);
-  }
-
-  .form-section {
-    margin-bottom: 1rem;
-    padding-left: .5rem;
-    li {
-      list-style-position: inside;
-      font-size: 1.2rem;
-      margin-bottom: .5rem;
-      color: white;
-    }
-  }
-
-  .user-input {
-    padding: 6px;
-    border-radius: 4px;
-    color: black;
-    display: block;
-    width: calc(100% - 12px);
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
-  }
-
-  textarea {
-    resize: none;
-    height: 200px;
-    overflow: auto;
-  }
-
-  button[disabled] {
-    cursor: not-allowed;
-    color: $gray;
-    border-color: $gray;
-  }
 }

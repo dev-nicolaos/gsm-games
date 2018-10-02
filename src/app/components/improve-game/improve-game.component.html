@@ -13,6 +13,6 @@
       <li>Are there typos or misspellings?</li>
     </ul>
     <textarea class="user-input" [(ngModel)]="improvements" placeholder="Please write your suggestions here (required)"></textarea>
-    <button (click)="submit()" [disabled]="!improvements">Submit Improvements</button>
+    <button class="alternate" (click)="submit()" [disabled]="!improvements">Submit Improvements</button>
   </section>
 </div>

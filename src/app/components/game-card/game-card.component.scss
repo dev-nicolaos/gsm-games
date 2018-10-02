@@ -6,13 +6,14 @@
   height: 100%;
   cursor: pointer;
   .game-card-title {
-    background: glenwood(blue);
+    background: glenwood(green);
     color: white;
     padding: .5rem;
   }
   .description-container {
     height: 100%;
-    background: white;
+    background: glenwood(blue);
+    color: white;
     border-radius: 0 0 4px 4px;
     .description {
       overflow: hidden;

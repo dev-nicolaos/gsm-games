@@ -12,7 +12,7 @@ h1 {
 
 h2 {
   font-size: 2rem;
-  font-weight: bold
+  font-weight: bold;
 }
 
 h3 {
@@ -41,4 +41,17 @@ button, input[type="submit"], input[type="reset"] {
   color: white;
   cursor: pointer;
   background: rgba($color: #000000, $alpha: 0);
+  &.alternate {
+    border: none;
+    background: glenwood(green);
+    color: white;
+  }
+  &.active {
+    font-weight: bold;
+  }
+  &[disabled] {
+    cursor: not-allowed;
+    color: $gray;
+    border-color: $gray;
+  }
 }

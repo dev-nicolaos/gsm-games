@@ -7,7 +7,7 @@ header {
   align-items: center;
   justify-content: space-between;
   h2 {
-    color: glenwood(blue);
+    color: glenwood(green);
     margin-right: 1rem;
   }
 }
@@ -23,7 +23,8 @@ header {
   }
   .game-filters {
     margin: 0 0 1rem 0;
-    background: white;
+    background: glenwood(blue);
+    color: white;
     padding: 6px;
     border-radius: 4px;
     text-align: center;
@@ -34,7 +35,7 @@ header {
       width: 200px;
     }
     h4 {
-      color: glenwood(blue);
+      color: glenwood(offwhite);
       margin-bottom: 2px;
     }
     .filter-type {

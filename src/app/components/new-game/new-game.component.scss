@@ -3,17 +3,6 @@
 
 .new-game-form {
   label {
-    color: white;
-    font-size: 1.2rem;
-  }
-
-  .user-input {
-    padding: 6px;
-    border-radius: 4px;
-    color: black;
-    display: block;
-    width: calc(100% - 12px);
-    margin-bottom: 1rem;
     font-size: 1.2rem;
   }
 
@@ -32,17 +21,6 @@
         }
       }
     }
-  }
-
-  .form-section-label {
-    margin-bottom: .5rem;
-    color: glenwood(blue);
-  }
-
-  .form-section {
-    margin-bottom: 1rem;
-    padding-left: .5rem;
-    input {margin-right: 1rem;}
   }
 
   .select-events {
@@ -64,22 +42,11 @@
     }
   }
 
-  textarea {
-    height: 200px;
-    overflow: auto;
-    resize: none;
-  }
-
   .form-actions {
     input {
       padding: 6px 12px;
       &:first-child {
         margin-right: .5rem;
-      }
-      &[disabled] {
-        cursor: not-allowed;
-        color: $gray;
-        border-color: $gray;
       }
     }
   }
