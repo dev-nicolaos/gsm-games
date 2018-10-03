@@ -25,6 +25,25 @@
       }
     }
   }
+  .top-tab {
+    display: none;
+    position: absolute;
+    right: 5%;
+    top: 0;
+    padding: 6px;
+    background: glenwood(green);
+    font-size: 1.1rem;
+    border: 1px solid white;
+    border-radius: 0 0 3px 3px;
+    border-top: none;
+    cursor: pointer;
+    @include md {
+      display: inline-block;
+    }
+    @media only screen and (min-width: 1440px) {
+      right: calc(((100% - 1440px) / 2) + 5%);
+    }
+  }
 }
 
 #app-footer {
