@@ -44,4 +44,4 @@ If deploying on apache/nginx add the following code to a `.htaccess` file and pl
 ```
 
 #### Games Data
-The games data is stored in a js file located at https://nicolaosskimas.com/api/gsm-games-data.js, and is loaded as a global variable via a script tag in `index.html`.
+The games data is stored in a js file located at the root of this project. When updated, it needs to be uploaded to https://nicolaosskimas.com/api/gsm-games-data.js. The app will load it as a global variable via a script tag in `index.html`. This implementation was chosen because the app is hosted on Glenwood's servers, which the developer does not have direct access to.
