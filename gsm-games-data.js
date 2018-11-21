@@ -1,4 +1,4 @@
-// Last Edited: November 13, 2018
+// Last Edited: November 21, 2018
 
 const GAMES = [
   {
@@ -658,5 +658,14 @@ const GAMES = [
     description: `Players are split into two teams and are all sitting (leave one empty seat). There are four seats in a row designated as “the couch” (there may be an actual couch, or you can just call four chairs in a row “the couch”). To start, each team should have two players on “the couch.” Each player writes their name on a slip of paper which are then mixed and randomly handed out to the players. It doesn’t matter if you get your own name. The person sitting to the right of the empty seat says the name of someone in the game. Whoever holds the slip of paper with that name on it moves to the empty seat. Play resumes with the player next to the newly-emptied seat. Each time a player moves, have them switch papers with the person who called them. Players may not call a name that has been called the last two turns. Continue until all four spots on “the couch” are occupied by one team.`,
     events: [`Sunday School`, ],
     settings: [`Organized`, `Freetime`, ],
+  },
+  {
+    id: 73,
+    url: `pull-up-game`,
+    name: `Pull Up Game`,
+    spaces: [`Indoors`, ],
+    description: `Works well with larger groups. Everyone grabs a chair and sits in a circle. The teams are boys vs. girls (all leaders can be on one team if needed to even out numbers). Have two boys and two girls start in the middle of the circle. Remove their chairs so four people are always in the middle of the circle. Have the game leader start playing music. While the music is playing the students in the middle will find someone of the opposite gender, take their hand, pull them up, and sit in their chair. This process repeats itself until the music stops. Players must select someone who is at least three chairs away, can only pull up one person at a time, and cannot pull up the person they were pulled up by. Teams are given points based on who is still standing when the music stops. 4 People Point System: 2 Boys / 2 Girls = No points. 3 Gender A / 1 Gender B = +1 Point for Gender B. 4 Gender A = +2 for Gender B. First team to 7 points wins. Students must cooperate when someone selects them to pull up, unless they've heard the music stop, in which case they can sit back down. Tips: If students are being rough with one another? Call them out and tell them to play nice. If a student doesn't want to play? Ask them to keep score on the white board or piece of paper. When stopping the music look away from the students so they don't think you are cheating.`,
+    events: [`Sunday School`, `Youth Group`, `Ignite Project`, `Christmas Party`, ],
+    settings: [`Organized`, ],
   },
 ];
