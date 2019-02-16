@@ -9,6 +9,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+
   input.games-search {
     background: white;
     font-size: 1.4rem;
@@ -19,8 +20,10 @@
       margin: 0;
     }
   }
+
   .list-filters {
     width: 100%;
+
     &-sm {
       @include md {
         display: none;
@@ -29,12 +32,14 @@
         font-size: 1.4rem;
       }
     }
+
     &-lg {
       display: none;
       @include md {
         display: block;
       }
     }
+
     .filter-options {
       margin-top: 10px;
       display: block;
@@ -48,10 +53,12 @@
         width: auto;
         flex-wrap: nowrap;
         padding-bottom: 1rem;
+
         h5 {
           min-width: 55px;
         }
       }
+
       .form-group {
         padding: 0 0 6px 0;
         display: flex;
@@ -61,15 +68,18 @@
           margin-left: 0;
           flex-grow: 1;
         }
+
         label {
           margin-bottom: 2px;
           font-size: 1.2rem;
         }
+
         select {
           color: black;
         }
       }
     }
+
     button {
       margin-top: 10px;
     }

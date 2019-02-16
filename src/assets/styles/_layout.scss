@@ -6,11 +6,13 @@ html {
 body {
   height: 100%;
   width: 100%;
+
   gsm-root {
     height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
+
     > * {
       padding-left: 5%;
       padding-right: 5%;
@@ -20,6 +22,7 @@ body {
         padding-right: calc(((100% - 1440px) / 2) + 5%);
       }
     }
+
     #page-content {
       margin-bottom: 2rem;
     }
