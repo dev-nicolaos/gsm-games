@@ -56,7 +56,7 @@ export class FilterGamesComponent implements OnInit {
   }
 
   clearFilters() {
-    this.gamesService.clearFilters();
+    this.gamesService.setEmptyFilters();
     this.filter.emit();
   }
 

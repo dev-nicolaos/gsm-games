@@ -15,7 +15,7 @@ export class GamesService {
     this.games = GAMES;
     this.orderGames();
     this.createLists();
-    this.clearFilters();
+    this.setEmptyFilters();
   }
 
   orderGames() {
@@ -54,7 +54,7 @@ export class GamesService {
     return this.games.find(game => game.url === url) || null;
   }
 
-  clearFilters() {
+  setEmptyFilters() {
     this.filters = {
       search: '',
       event: '',

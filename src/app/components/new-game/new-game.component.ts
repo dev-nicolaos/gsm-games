@@ -32,6 +32,7 @@ export class NewGameComponent {
       spaces: (newGameForm.value.space === 'Both') ? ['Indoors', 'Outdoors'] : [newGameForm.value.space],
       settings: (newGameForm.value.setting === 'Both') ? ['Organized', 'Freetime'] : [newGameForm.value.setting],
     };
+
     for (const prop in newGameForm.value) {
       if (prop.startsWith('event_')) {
         if (prop.endsWith('other') && newGameForm.value[prop]) {
