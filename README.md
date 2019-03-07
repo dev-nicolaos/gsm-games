@@ -1,6 +1,6 @@
 # Glenwood Student Ministries Games Center
 
-#### This project uses [Angular CLI](https://github.com/angular/angular-cli) version 6.2.4
+#### This project uses [Angular CLI](https://github.com/angular/angular-cli) version 7.3.5
 
 Games are a great way to connect with students. They can be the perfect tool for generating energy, building relationships, and showing newcomers how much fun a group is.
 
