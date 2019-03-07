@@ -8,6 +8,13 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
+  get(url: string) {
+    return this.http.get(url).pipe(
+      retry(2),
+      catchError(this.handleError)
+    );
+  }
+
   post(url: string, data: object) {
     const httpOptions = {
       headers: new HttpHeaders({
