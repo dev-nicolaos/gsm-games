@@ -13,6 +13,7 @@ import {
   NewGameComponent,
   ImproveGameComponent,
   NotificationComponent,
+  SpinnerComponent,
 } from './components/components';
 
 import { GamesService, DataService } from './services/services';
@@ -29,6 +30,7 @@ import { ValidGameGuard } from './guards/guards';
     NewGameComponent,
     NotificationComponent,
     NoSpacePipe,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,

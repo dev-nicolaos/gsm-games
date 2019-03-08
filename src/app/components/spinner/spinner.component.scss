@@ -1,0 +1,17 @@
+:host {
+  display: block;
+}
+
+.spinner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border-width: 5px;
+  border-style: solid;
+  animation: spin 1.2s linear infinite;
+
+  @keyframes spin {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+  }
+}

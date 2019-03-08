@@ -6,3 +6,4 @@ export * from './contribute/contribute.component';
 export * from './new-game/new-game.component';
 export * from './improve-game/improve-game.component';
 export * from './notification/notification.component';
+export * from './spinner/spinner.component';
