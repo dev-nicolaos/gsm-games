@@ -12,7 +12,7 @@ export class SpinnerComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    let color = this.color || '#fff';
+    const color = this.color || '#fff';
     this.spinnerColor = `${color} transparent`;
   }
 
