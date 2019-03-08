@@ -12,11 +12,10 @@ import { GamesService } from '../../services/games.service';
 export class GameListComponent implements OnInit {
   games: Game[];
 
-  constructor(private titleService: Title, private gamesService: GamesService) {
-    this.games = this.gamesService.games;
-  }
+  constructor(private titleService: Title, private gamesService: GamesService) { }
 
   ngOnInit() {
+    this.games = this.gamesService.games;
     this.titleService.setTitle('Game Center');
   }
 

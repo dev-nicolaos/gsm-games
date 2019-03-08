@@ -7,7 +7,10 @@
 </header>
 
 <main id="page-content">
-  <router-outlet></router-outlet>
+  <router-outlet *ngIf="gameService.games; else spin"></router-outlet>
+  <ng-template #spin>
+    <gsm-spinner></gsm-spinner>
+  </ng-template>
 </main>
 
 <footer id="app-footer">

@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 
 import { Game, FilterObject } from '../models/models';
 
+import { DataService } from './data.service';
+
 @Injectable()
 export class GamesService {
   games: Game[];
@@ -11,10 +13,15 @@ export class GamesService {
   filters: FilterObject;
   gameToImprove: Game | '' = '';
 
-  constructor() {
-    this.games = GAMES;
-    this.orderGames();
-    this.createLists();
+  constructor(private dataService: DataService) { }
+
+  init() {
+    this.dataService.get('https://nicolaosskimas.com/api/gsm-games-data.json').subscribe(res => {
+      this.games = <Game[]>res;
+      this.orderGames();
+      this.createLists();
+    });
+
     this.setEmptyFilters();
   }
 
